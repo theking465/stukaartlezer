@@ -1,9 +1,10 @@
 import keyboard, requests, json, re
 
-TOKEN_URL="https://idp.kuleuven.be/auth/realms/kuleuven/protocol/openid-connect/token"
-API_ENDPOINT = "https://account.kuleuven.be/api/v1/idverification"
 CLIENT_ID=''
 CLIENT_SECRET=''
+
+TOKEN_URL="https://idp.kuleuven.be/auth/realms/kuleuven/protocol/openid-connect/token"
+API_ENDPOINT = "https://account.kuleuven.be/api/v1/idverification"
 PATTERN = re.compile(r".*([0-9a-fA-F]{14};[0-9]{10}).*")
 
 def get_access_token(url, client_id, client_secret):
