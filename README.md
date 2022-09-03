@@ -21,7 +21,7 @@ Elk service account wordt gespecifieerd door een client_id en een client_secret.
 
 - Werkt op Windows via Powershell of Cmd
 
-- Werkt op Linux **als root user**, dit komt door de manier waarop de input wordt ingelezen.
+- Werkt **niet volledig** op Linux **als root user**, dit komt door de manier waarop de input wordt ingelezen. De input wordt te traag herkend en geeft onverwacht gedrag.
 
 - Het script draait op de achtergrond in een terminal venster en wordt opgestart met `python3 stukaart.py`
 - Het script kan gestopt worden door `esc + enter` 2 keer in te voeren
