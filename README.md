@@ -30,6 +30,7 @@ Elk service account wordt gespecifieerd door een client_id en een client_secret.
 
 - Een actieve internet connectie is ten alle tijde nodig
 - Doordat het script luistert op input gevolgd door een `enter` kan men niet zomaar een nieuwe lijn typen, dit gebeurt door 2 keer de `enter` toets te gebruiken.
+- Het omzetten van scanner input naar een gebruikersnummer kan enige tijd (10-20sec) in beslag nemen. Dit komt door een trage API response. De tool geeft aan wanneer er gewacht wordt op de API. 
 
 ## Disclaimer
 
