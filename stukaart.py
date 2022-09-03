@@ -20,13 +20,15 @@ def listen_for_scanner():
     while PATTERN.search(scannerInput) is None:
         scannerInput = ""
         recorded = keyboard.record(until='enter',suppress=True)[:-1]
-
+        print("Scanner input received")
         for key in recorded:
             if key.event_type == 'down' and key.name != 'shift' and key.name != 'maj':
                 # temp fix since `§` key is unknown
                 scannerInput += key.name if key.name != 'unknown' else '6'
         if(scannerInput == ''): keyboard.write('\n')
         if(scannerInput == 'esc'): exit()
+        if PATTERN.search(scannerInput) is None:
+            print("Invalid input, waiting for retry...")
     return PATTERN.search(scannerInput).group(1).split(";")
 
 def get_username_from_scanner_details(details):
@@ -50,12 +52,17 @@ def write_username(length, username):
     keyboard.write("\n")
 
 def main():
+    print("Press esc+enter twice in order to exit the program")
     global AUTH_TOKEN
+    print("Getting access token...")
     AUTH_TOKEN = get_access_token(TOKEN_URL, CLIENT_ID, CLIENT_SECRET)
+    print("Access token received")
     keyboard.add_abbreviation('enter', '\n')
     while True:
+        print("Waiting for scanner input...")
         details = listen_for_scanner()
         length = len(details[1]) + len(details[0]) + 1
+        print("Correct input, retrieving username...")
         username = get_username_from_scanner_details(details)
         write_username(length, username)
 
