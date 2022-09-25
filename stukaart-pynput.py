@@ -1,8 +1,8 @@
 from pynput import keyboard as kboard
 import keyboard, requests, json, re
 
-CLIENT_ID='scientica-cursusdienst'
-CLIENT_SECRET='fB9XhdVX7RTiXHklDZ3MAXOcmc6ULf97'
+CLIENT_ID=''
+CLIENT_SECRET=''
 
 TOKEN_URL="https://idp.kuleuven.be/auth/realms/kuleuven/protocol/openid-connect/token"
 API_ENDPOINT = "https://account.kuleuven.be/api/v1/idverification"
